@@ -1,6 +1,3 @@
-
-
-
 def read_file(file_path: str) -> str:
     """
     Read the contents of a text file.
