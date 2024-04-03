@@ -9,18 +9,20 @@ def read_file(file_path):
         return None
 
 def count_words(text):
-    separators = [' ', ',', ':', ';']  # роздільники слів
+    separators = [' ', ',', ':', ';',".", "!", "?", "..."]  # роздільники слів
     for sep in separators:
         text = text.replace(sep, ' ')  # замінюємо роздільники пробілами
     words = text.split()  # Розділяємо текст на слова за пробілами
     return len(words)
 
 def count_sentences(text):
-    sentences = text.split('.')  
-    sentences += text.split('!')  
-    sentences += text.split('?') 
-    sentences += text.split('...') 
-    return len(sentences)
+    separators = ['.', '!', '?', '...']
+    for separator in separators:
+        text = text.replace(separator, '\n')
+    parts = text.split('\n')
+    parts = list(filter(lambda s: s != '', parts))
+    return len(parts)
+
 
 def analyze_text(file_path):
     text = read_file(file_path)
