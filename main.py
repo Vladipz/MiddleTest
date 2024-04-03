@@ -1,6 +1,7 @@
 
 
-def read_file(file_path):
+
+def read_file(file_path: str) -> str:
     """
     Read the contents of a text file.
 
@@ -18,7 +19,7 @@ def read_file(file_path):
         print("File not found.")
         return None
 
-def count_words(text):
+def count_words(text: str) -> int:
     """
     Count the number of words in the given text.
 
@@ -34,7 +35,7 @@ def count_words(text):
     words = text.split()  # Split the text into words by spaces
     return len(words)
 
-def count_sentences(text):
+def count_sentences(text: str) -> int:
     """
     Count the number of sentences in the given text.
 
@@ -51,7 +52,7 @@ def count_sentences(text):
     parts = list(filter(lambda s: s != '', parts))  # Filter out empty parts
     return len(parts)
 
-def analyze_text(file_path):
+def analyze_text(file_path: str) -> tuple[int, int]:
     """
     Analyze a text file and count the number of words and sentences.
 
@@ -60,7 +61,7 @@ def analyze_text(file_path):
 
     Returns:
         tuple: A tuple containing the number of words and sentences in the text file.
-               Returns (None, None) if the file is not found or an error occurs.
+               
     """
     text = read_file(file_path)
     if text:
